@@ -30,32 +30,43 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-aqua-50">
-      <header className="py-20 px-4 text-center">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 relative">
+      {/* Background image with overlay */}
+      <div 
+        className="absolute inset-0 z-0 opacity-20"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      />
+      
+      <header className="relative z-10 py-20 px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Aquatic Life & Design
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
             Explore the beautiful world of tropical fish and planted aquariums
           </p>
           <div className="max-w-md mx-auto">
             <Input
               type="search"
               placeholder="Search articles..."
-              className="w-full"
+              className="w-full bg-gray-800/50 text-white placeholder:text-gray-400 border-gray-700"
             />
           </div>
         </motion.div>
       </header>
 
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-12 relative z-10">
         <section className="mb-16">
-          <h2 className="text-3xl font-semibold text-gray-900 mb-8 text-center">
+          <h2 className="text-3xl font-semibold text-white mb-8 text-center">
             Latest Articles
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -77,8 +88,8 @@ const Index = () => {
         </section>
       </main>
 
-      <footer className="bg-white py-12 mt-20">
-        <div className="container mx-auto px-4 text-center text-gray-600">
+      <footer className="bg-gray-900 py-12 mt-20 relative z-10">
+        <div className="container mx-auto px-4 text-center text-gray-400">
           <p>&copy; 2024 Aquatic Life & Design. All rights reserved.</p>
         </div>
       </footer>
