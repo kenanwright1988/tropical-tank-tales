@@ -9,6 +9,7 @@ interface BlogCardProps {
   category: string;
   imageUrl: string;
   date: string;
+  link?: string;
 }
 
 const BlogCard = ({ title, excerpt, category, imageUrl, date }: BlogCardProps) => {

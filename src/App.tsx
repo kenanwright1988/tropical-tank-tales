@@ -5,6 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import PlantedGuide from "./pages/PlantedGuide";
+import TropicalFishGuide from "./pages/TropicalFishGuide";
+import LowTechGuide from "./pages/LowTechGuide";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +19,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/guides/planted-aquascaping" element={<PlantedGuide />} />
+          <Route path="/guides/tropical-fish" element={<TropicalFishGuide />} />
+          <Route path="/guides/low-tech-plants" element={<LowTechGuide />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import BlogCard from "../components/BlogCard";
 import NewsletterSignup from "../components/NewsletterSignup";
 import { Input } from "../components/ui/input";
@@ -12,6 +13,7 @@ const Index = () => {
       category: "Planted Tanks",
       imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
       date: "March 15, 2024",
+      link: "/guides/planted-aquascaping"
     },
     {
       title: "Caring for Tropical Fish: Beginner's Guide",
@@ -19,6 +21,7 @@ const Index = () => {
       category: "Fish Care",
       imageUrl: "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1",
       date: "March 14, 2024",
+      link: "/guides/tropical-fish"
     },
     {
       title: "Best Plants for Low-Tech Aquariums",
@@ -26,6 +29,7 @@ const Index = () => {
       category: "Plants",
       imageUrl: "https://images.unsplash.com/photo-1518877593221-1f28583780b4",
       date: "March 13, 2024",
+      link: "/guides/low-tech-plants"
     },
   ];
 
@@ -71,14 +75,15 @@ const Index = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredPosts.map((post, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <BlogCard {...post} />
-              </motion.div>
+              <Link to={post.link} key={index}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <BlogCard {...post} />
+                </motion.div>
+              </Link>
             ))}
           </div>
         </section>
